@@ -23,8 +23,16 @@ Average Precision is calculated as the area under a precision vs recall curve fo
 Objects often fall within one grid, leading to redundant boxes. NMS discards bounding boxes with high overlap, retaining the one with the highest confidence.
 
 ## 4. YOLO Loss
+![Image](loss_function.png)
 
-(No detailed explanation provided)
+<span style="color:red">Coordinate Loss:</span> Minimize the difference between x, y, w, h pred and x, y, w, h ground truth. ONLY IF object exists in grid box and if bounding box is responsible for pred.
+
+<span style="color:blue">Confidence Loss:</span> Loss based on confidence ONLY IF there is an object.
+
+<span style="color:green">No Object Loss:</span> Loss based on confidence if there is no object.
+
+<span style="color:pink">Class Loss:</span> Minimize loss between true class of the object in the grid box.
+
 
 # Models
 
